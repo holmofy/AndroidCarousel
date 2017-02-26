@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Indicator">
+        <attr name="item_width" format="dimension" />
+        <attr name="item_height" format="dimension" />
+        <attr name="item_gap" format="dimension" />
+        <attr name="item_clickable" format="boolean" />
+        <attr name="selected_drawable" format="reference" />
+        <attr name="unselected_drawable" format="reference" />
+    </declare-styleable>
+</resources>
