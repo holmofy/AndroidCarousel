@@ -1,4 +1,4 @@
-package cn.hufeifei.carousel;
+package cn.hufeifei.carousel.indicator;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -8,23 +8,31 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 /**
- * 数字型ViewPager的指示器
+ * ViewPager页面标题
+ * 调用{@link #attachViewPager(ViewPager)}方法可以关联ViewPager
+ * 这个标题内容来自于ViewPager的适配器中的方法{@link PagerAdapter#getPageTitle(int)}
+ * 因为这个类继承自{@link TextView}，因此你可以像设置TextView的属性一样设置它的属性
+ * Used to display the title of the {@link ViewPager}.
+ * Calls the method {@link #attachViewPager(ViewPager)} can be associated ViewPager.
+ * The title from each page is supplied by the method {@link PagerAdapter#getPageTitle(int)}
+ * in the adapter supplied to the ViewPager.
+ * Because it is inherited from {@link TextView} so you can take it as a TextView to use.
  * Created by Holmofy on 2017/2/26.
  */
 
-public class DigitIndicator extends TextView {
+public class PagerTitle extends TextView implements Indicator {
     private ViewPager mViewPager;
-    private IndicatorOnPageChangeListener mPageChangeListener;
+    private TitleOnPageChangeListener mPageChangeListener;
 
-    public DigitIndicator(Context context) {
-        this(context, null);
+    public PagerTitle(Context context) {
+        super(context, null);
     }
 
-    public DigitIndicator(Context context, AttributeSet attrs) {
+    public PagerTitle(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public DigitIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
+    public PagerTitle(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -47,24 +55,24 @@ public class DigitIndicator extends TextView {
             }
             // 添加ViewPager的页面滚动的事件监听
             if (mPageChangeListener == null) {
-                mPageChangeListener = new IndicatorOnPageChangeListener();
+                mPageChangeListener = new TitleOnPageChangeListener();
             }
             viewPager.addOnPageChangeListener(mPageChangeListener);
             //设置当前文本内容
-            this.setText(viewPager.getCurrentItem() + "/" + adapter.getCount());
+            this.setText(adapter.getPageTitle(viewPager.getCurrentItem()));
         } else {
             //文本置空
             this.setText("");
         }
     }
 
-    private class IndicatorOnPageChangeListener extends ViewPager.SimpleOnPageChangeListener {
+    private class TitleOnPageChangeListener extends ViewPager.SimpleOnPageChangeListener {
 
         @Override
         public void onPageSelected(int position) {
             if (mViewPager != null) {
                 final PagerAdapter adapter = mViewPager.getAdapter();
-                DigitIndicator.this.setText(position + "/" + adapter.getCount());
+                PagerTitle.this.setText(adapter.getPageTitle(position));
             }
         }
     }

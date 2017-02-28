@@ -1,4 +1,4 @@
-package cn.hufeifei.carousel;
+package cn.hufeifei.carousel.indicator;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import cn.hufeifei.carousel.R;
+
 /**
  * 圆形指示器，用于指明ViewPager当前页所在的位置
  * used to indicate position of the ViewPager's current page
@@ -16,7 +18,7 @@ import android.widget.LinearLayout;
  * Created by Holmofy on 2017/2/26.
  */
 
-public class Indicator extends LinearLayout {
+public class ShapeIndicator extends LinearLayout implements Indicator {
     private Context mContext;
 
     private int mCircleWidth;
@@ -31,24 +33,24 @@ public class Indicator extends LinearLayout {
     private int mSelectedDrawable;
     private int mUnSelectedDrawable;
 
-    public Indicator(Context context) {
+    public ShapeIndicator(Context context) {
         this(context, null);
     }
 
-    public Indicator(Context context, AttributeSet attrs) {
+    public ShapeIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.mContext = context;
         initFromAttributes(context, attrs);
     }
 
     private void initFromAttributes(Context context, AttributeSet attrs) {
-        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Indicator);
-        mCircleWidth = a.getDimensionPixelSize(R.styleable.Indicator_item_width, 0);
-        mCircleHeight = a.getDimensionPixelSize(R.styleable.Indicator_item_height, 0);
-        mCircleGap = a.getDimensionPixelSize(R.styleable.Indicator_item_gap, mCircleWidth);
-        mCircleClickable = a.getBoolean(R.styleable.Indicator_item_clickable, true);
-        mSelectedDrawable = a.getResourceId(R.styleable.Indicator_selected_drawable, R.drawable.indicator_default_selected_drawable);
-        mUnSelectedDrawable = a.getResourceId(R.styleable.Indicator_unselected_drawable, R.drawable.indicator_default_unselected_drawable);
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ShapeIndicator);
+        mCircleWidth = a.getDimensionPixelSize(R.styleable.ShapeIndicator_item_width, 0);
+        mCircleHeight = a.getDimensionPixelSize(R.styleable.ShapeIndicator_item_height, 0);
+        mCircleGap = a.getDimensionPixelSize(R.styleable.ShapeIndicator_item_gap, mCircleWidth);
+        mCircleClickable = a.getBoolean(R.styleable.ShapeIndicator_item_clickable, true);
+        mSelectedDrawable = a.getResourceId(R.styleable.ShapeIndicator_selected_drawable, R.drawable.indicator_default_selected_drawable);
+        mUnSelectedDrawable = a.getResourceId(R.styleable.ShapeIndicator_unselected_drawable, R.drawable.indicator_default_unselected_drawable);
         a.recycle();
     }
 
@@ -118,7 +120,7 @@ public class Indicator extends LinearLayout {
     private class IndicatorOnPageChangeListener extends ViewPager.SimpleOnPageChangeListener {
         @Override
         public void onPageSelected(int position) {
-            Indicator.this.select(position);
+            ShapeIndicator.this.select(position);
         }
     }
 
