@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="Indicator">
+    <declare-styleable name="ShapeIndicator">
         <attr name="item_width" format="dimension" />
         <attr name="item_height" format="dimension" />
         <attr name="item_gap" format="dimension" />
         <attr name="item_clickable" format="boolean" />
         <attr name="selected_drawable" format="reference" />
         <attr name="unselected_drawable" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="Carousel">
+        <attr name="scroll_delay" format="integer" />
+        <attr name="scroll_duration" format="integer" />
+        <attr name="scroll_direction" format="enum">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+        <attr name="auto_scroll" format="boolean" />
     </declare-styleable>
 </resources>

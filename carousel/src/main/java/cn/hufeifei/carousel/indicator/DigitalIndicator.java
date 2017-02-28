@@ -12,19 +12,19 @@ import android.widget.TextView;
  * Created by Holmofy on 2017/2/26.
  */
 
-public class DigitIndicator extends TextView implements Indicator {
+public class DigitalIndicator extends TextView implements Indicator {
     private ViewPager mViewPager;
     private IndicatorOnPageChangeListener mPageChangeListener;
 
-    public DigitIndicator(Context context) {
+    public DigitalIndicator(Context context) {
         this(context, null);
     }
 
-    public DigitIndicator(Context context, AttributeSet attrs) {
+    public DigitalIndicator(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public DigitIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DigitalIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -51,7 +51,7 @@ public class DigitIndicator extends TextView implements Indicator {
             }
             viewPager.addOnPageChangeListener(mPageChangeListener);
             //设置当前文本内容
-            this.setText(viewPager.getCurrentItem() + "/" + adapter.getCount());
+            this.setText(viewPager.getCurrentItem() + 1 + "/" + adapter.getCount());
         } else {
             //文本置空
             this.setText("");
@@ -64,7 +64,7 @@ public class DigitIndicator extends TextView implements Indicator {
         public void onPageSelected(int position) {
             if (mViewPager != null) {
                 final PagerAdapter adapter = mViewPager.getAdapter();
-                DigitIndicator.this.setText(position + "/" + adapter.getCount());
+                DigitalIndicator.this.setText(position + 1 + "/" + adapter.getCount());
             }
         }
     }

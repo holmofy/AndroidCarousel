@@ -20,19 +20,19 @@ import android.widget.TextView;
  * Created by Holmofy on 2017/2/26.
  */
 
-public class PagerTitle extends TextView implements Indicator {
+public class TitleIndicator extends TextView implements Indicator {
     private ViewPager mViewPager;
     private TitleOnPageChangeListener mPageChangeListener;
 
-    public PagerTitle(Context context) {
+    public TitleIndicator(Context context) {
         super(context, null);
     }
 
-    public PagerTitle(Context context, AttributeSet attrs) {
+    public TitleIndicator(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public PagerTitle(Context context, AttributeSet attrs, int defStyleAttr) {
+    public TitleIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -72,7 +72,7 @@ public class PagerTitle extends TextView implements Indicator {
         public void onPageSelected(int position) {
             if (mViewPager != null) {
                 final PagerAdapter adapter = mViewPager.getAdapter();
-                PagerTitle.this.setText(adapter.getPageTitle(position));
+                TitleIndicator.this.setText(adapter.getPageTitle(position));
             }
         }
     }
