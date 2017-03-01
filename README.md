@@ -56,7 +56,7 @@
 
 4、DigitalIndicator是以数字的方式显示当前页面所在的位置的，它也是直接继承自TextView，与ViewPager关联后会自动根据ViewPager所在的位置修改文本内容（Demo中第二个轮播图就是用了该指示器）
 
-** 在以上的Indicator指示器中都有一个[void attachViewPager(@Nullable ViewPager viewPager)](https://github.com/holmofy/Carousel/blob/master/carousel/src/main/java/cn/hufeifei/carousel/indicator/Indicator.java#LC14) 方法可以将指示器与ViewPager关联，由于Carousel直接继承自ViewPager，所以你也可以使用该方法关联Carousel，如果传入参数为null，解除该指示器与原来的ViewPager的关联。**
+**在以上的Indicator指示器中都有一个[void attachViewPager(@Nullable ViewPager viewPager)](https://github.com/holmofy/Carousel/blob/master/carousel/src/main/java/cn/hufeifei/carousel/indicator/Indicator.java#LC14) 方法可以将指示器与ViewPager关联，由于Carousel直接继承自ViewPager，所以你也可以使用该方法关联Carousel，如果传入参数为null，解除该指示器与原来的ViewPager的关联**
 具体关联ViewPager的Java代码如下 ：
 ```
 carousel.setAdapter(new PagerAdapter());
