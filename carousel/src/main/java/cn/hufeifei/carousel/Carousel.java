@@ -28,7 +28,7 @@ import java.util.List;
  * @author holmofy
  */
 public class Carousel extends ViewPager {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final String TAG = "Carousel";
 
     @Retention(RetentionPolicy.SOURCE)
@@ -73,8 +73,8 @@ public class Carousel extends ViewPager {
                     instance.setCurrentItem(instance.getCurrentItem() + 1, true);
                     sendEmptyMessageDelayed(DIRECTION_LEFT, instance.mScrollDelay);
                 } else if (msg.what == DIRECTION_RIGHT) {
-                    instance.setCurrentItem(instance.getCurrentItem() + 1, true);
-                    sendEmptyMessageDelayed(DIRECTION_LEFT, instance.mScrollDelay);
+                    instance.setCurrentItem(instance.getCurrentItem() - 1, true);
+                    sendEmptyMessageDelayed(DIRECTION_RIGHT, instance.mScrollDelay);
                 }
             }
         }
