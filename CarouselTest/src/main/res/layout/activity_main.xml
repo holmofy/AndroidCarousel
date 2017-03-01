@@ -1,17 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="cn.hufeifei.carousel.MainActivity">
+    android:orientation="vertical"
+    tools:context="cn.hufeifei.test.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+
+        <cn.hufeifei.carousel.Carousel
+            android:id="@+id/carousel1"
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#9000">
+
+            <cn.hufeifei.carousel.indicator.TitleIndicator
+                android:id="@+id/pagerTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:padding="10dp"
+                android:textColor="#fff"
+
+                tools:ignore="RtlHardcoded" />
+
+            <cn.hufeifei.carousel.indicator.ShapeIndicator
+                android:id="@+id/shapeIndicator1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                app:item_gap="10dp"
+                app:item_height="10dp"
+                app:item_width="10dp"
+                tools:ignore="RtlHardcoded" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="10dp">
+
+        <cn.hufeifei.carousel.Carousel
+            android:id="@+id/carousel2"
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#9000">
+
+            <cn.hufeifei.carousel.indicator.TitleIndicator
+                android:id="@+id/pagerTitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:padding="10dp"
+                android:textColor="#fff"
+                tools:ignore="RtlHardcoded" />
+
+            <cn.hufeifei.carousel.indicator.DigitalIndicator
+                android:id="@+id/digitalIndicator2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:textColor="#fff"
+                tools:ignore="RtlHardcoded" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="10dp">
+
+        <cn.hufeifei.carousel.Carousel
+            android:id="@+id/carousel3"
+            android:layout_width="match_parent"
+            android:layout_height="160dp" />
+
+        <cn.hufeifei.carousel.indicator.ShapeIndicator
+            android:id="@+id/shapeIndicator3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            app:item_gap="5dp"
+            app:item_height="4dp"
+            app:item_width="20dp"
+            app:selected_drawable="@drawable/selected_drawable"
+            app:unselected_drawable="@drawable/unselected_drawable"
+            tools:ignore="RtlHardcoded" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package cn.hufeifei.carousel;
+package cn.hufeifei.test;
 
 import org.junit.Test;
 
