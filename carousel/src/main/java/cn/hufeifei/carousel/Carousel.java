@@ -9,6 +9,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
@@ -27,6 +28,9 @@ import java.util.List;
  * @author holmofy
  */
 public class Carousel extends ViewPager {
+    private static final boolean DEBUG = true;
+    private static final String TAG = "Carousel";
+
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({SCROLL_DIRECTION_LEFT, SCROLL_DIRECTION_RIGHT})
     public @interface ScrollDirection {
@@ -34,9 +38,6 @@ public class Carousel extends ViewPager {
 
     public static final int SCROLL_DIRECTION_LEFT = 0;
     public static final int SCROLL_DIRECTION_RIGHT = 1;
-
-    private static final boolean DEBUG = true;
-    private static final String TAG = "Carousel";
 
     private static final int DEFAULT_SCROLL_DELAY = 3000;
     private static final boolean DEFAULT_AUTO_SCROLL = true;
@@ -114,6 +115,22 @@ public class Carousel extends ViewPager {
             mHandler = new Handler(this);
         }
         a.recycle();
+    }
+
+    /**
+     * 解决用户触摸时的滑动问题
+     */
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mHandler.removeCallbacksAndMessages(null);
+                break;
+            case MotionEvent.ACTION_UP:
+                resendMessage();
+                break;
+        }
+        return super.onTouchEvent(ev);
     }
 
     public boolean isAutoScroll() {
