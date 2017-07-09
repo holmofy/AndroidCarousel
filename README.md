@@ -4,7 +4,7 @@
 ![效果图](https://github.com/holmofy/Carousel/blob/master/Screenshot/screenshot-1.gif)
 
 使用时在布局文件中设计好你想要的轮播图效果，如下
-```
+```xml
 <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="160dp">
@@ -64,8 +64,8 @@ pagerTitle.attachViewPager(carousel);
 shapeIndicator.attachViewPager(carousel);//调用该方法关联ViewPager对象
 ```
 
-##设置ViewPager切换动画
-如果你想设置更炫的动画切换效果你可以参考**[ViewPagerTransforms项目](https://github.com/ToxicBakery/ViewPagerTransforms)**，使用方式非常简单：
+## 设置ViewPager切换动画
+如果你想设置更炫的动画切换效果你可以参考** [ViewPagerTransforms项目](https://github.com/ToxicBakery/ViewPagerTransforms) **，使用方式非常简单：
 ```
 //先添加该库的Gradle依赖
 compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
